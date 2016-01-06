@@ -4,70 +4,102 @@
     <meta charset="UTF-8">
     <title>android-common-tools</title>
   </head>
-  <style type="text/css">
-    *{
-      margin:0;
-      padding:0;
-      list-style-type:none;
-    }
-    body{
-      background:#3D4444;
-    }
-    .container{
-      margin:40px auto;
-      width:90%;
-      heght:80%;
-      box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.5);
-    }
-    ul{
-      list-style-type:none;
-      width:160px;
-      padding:60px 0 60px 0;
-    }
-
-    li {
-        padding:7px 15px 7px 15px;
-        width:120px;
-        height:40px;
-        display:block;
-        text-align:right;
-        vertical-align:middle;
-    }
-    li a{
-        color:#FFF;
-        text-decoration:none;
-    }
-
-    li a:focus{
-      outline: none;
-      color:#ffb200;
-    }
-
+  <script>window.$=window.jQuery=require("./resources/js/jquery-2.1.4.js")</script>
+  <link rel="stylesheet" href="./resources/css/semantic.css">
+  <script src="./resources/js/semantic.js"></script>
+  <script src="./resources/js/tab.js"></script>
+  <style>
     .content{
-      margin-left:160px;
-      width: auto;
-      min-height: 600px;
-      background-color: #FFF;
+      min-height: 400px;
     }
   </style>
   <body>
-    <div class="container">
-      <div style="float:left; width:200px;height:100%;">
-        <nav>
-          <ul>
-            <li><a href="#">tools</a></li>
-            <li><a href="#">push apks</a></li>
-            <li><a href="#">pull files</a></li>
-            <li><a href="#">kill processes</a></li>
-            <li><a href="#">history</a></li>
-            <li><a href="#">Add</a></li>
-          </ul>
-        </nav>
+    <div style="width:90%;height:90%;margin:50px auto;">
+      <h2 class="ui center aligned icon header"><i class="unhide icon"></i>©2016 vivo</h2>
+      <div class="ui top attached tabular menu">
+        <a class="item active" data-tab="monitor">monitor</a>
+        <a class="item" data-tab="process">process</a>
+        <a class="item" data-tab="command">command</a>
+        <a class="item" data-tab="history">history</a>
       </div>
-      <div class="content">
-        <p>this is content</p>
+      <div class="ui bottom attached tab segment active" data-tab="monitor">
+        <div class="ui top attached tabular menu">
+          <a class="active item" data-tab="memory">memory</a>
+          <a class="item" data-tab="CPU">CPU</a>
+          <a class="item" data-tab="dumpsys">dumpsys</a>
+        </div>
+        <div class="ui bottom attached active tab segment content" data-tab="memory">
+          <button class="ui primary button">自动刷新数据</button>
+          <button class="ui button">取消</button>
+          <h4 class="ui horizontal divider header"><i class="line chart icon"></i>曲线图</h4>
+          <canvas height="400" width="800" />
+        </div>
+        <div class="ui bottom attached tab segment content" data-tab="CPU">
+          <button class="ui primary button">自动刷新数据</button>
+          <button class="ui button">取消</button>
+          <h4 class="ui horizontal divider header"><i class="line chart icon"></i>曲线图</h4>
+          <canvas height="400" width="800" />
+        </div>
+        <div class="ui bottom attached tab segment content" data-tab="dumpsys">dumpsys</div>
       </div>
-      <div style="clear:both;"></div>
+      <div class="ui bottom attached tab segment" data-tab="process">
+        <button class="ui primary button">刷新数据</button>
+        <div class="ui divider"></div>
+        <table class="ui very padded table">
+          <thead>
+            <tr>
+              <th>进程</th>
+              <th>PID</th>
+              <th>杀死进程</th>
+              <th>加入/移除监控</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>com.android.contacts</td>
+              <td>4545</td>
+              <td><button class="ui red button">kill</button></td>
+              <td><button class="ui teal button">加入</button></td>
+            </tr>
+            <tr>
+              <td>com.android.mms</td>
+              <td>4545</td>
+              <td><button class="ui red button">kill</button></td>
+              <td><button class="ui teal button">移除</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ui bottom attached tab segment" data-tab="command">
+        <button class="ui primary button">编辑</button>
+        <button class="ui button">添加</button>
+        <div class="ui divider"></div>
+        <table class="ui very padded table">
+          <thead>
+            <tr>
+              <th>命令</th>
+              <th>执行</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>adb shell push contacts.apk /system/priv-app/Contacts</td>
+              <td><button class="ui teal button">执行</button></td>
+            </tr>
+            <tr>
+              <td>adb shell push mms.apk /system/priv-app/Contacts</td>
+              <td><button class="ui teal button">执行</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ui bottom attached tab segment" data-tab="history">
+        <div class="ui middle aligned animated list">
+          <div class="item">历史操作-1</div>
+          <div class="item">历史操作-2</div>
+          <div class="item">历史操作-3</div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
