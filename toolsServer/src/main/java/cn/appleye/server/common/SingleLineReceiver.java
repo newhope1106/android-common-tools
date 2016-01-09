@@ -20,7 +20,6 @@ public abstract class SingleLineReceiver implements IShellOutputReceiver{
         mTrimLines = trim;
     }
     
-	@Override
 	public void addOutput(byte[] data, int offset, int length) {
 		// TODO Auto-generated method stub
 		if (!isCancelled()) {
@@ -68,7 +67,6 @@ public abstract class SingleLineReceiver implements IShellOutputReceiver{
         }
 	}
 
-	@Override
 	public void flush() {
 		// TODO Auto-generated method stub
 		done();
@@ -83,8 +81,7 @@ public abstract class SingleLineReceiver implements IShellOutputReceiver{
     public void cancel(){
     	isCancel = true;
     }
-
-	@Override
+    
 	public boolean isCancelled() {
 		// TODO Auto-generated method stub
 		return isCancel;

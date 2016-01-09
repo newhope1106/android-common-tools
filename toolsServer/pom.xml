@@ -3,4 +3,12 @@
   <groupId>cn.appleye</groupId>
   <artifactId>toolsServer</artifactId>
   <version>1.0.0</version>
+  
+  <dependencies>
+    <dependency>
+	    <groupId>com.google.android.tools</groupId>
+	    <artifactId>ddmlib</artifactId>
+	    <version>r13</version>
+	</dependency>
+  </dependencies>
 </project>
